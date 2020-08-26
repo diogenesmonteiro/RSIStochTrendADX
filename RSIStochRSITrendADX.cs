@@ -38,33 +38,33 @@ namespace NinjaTrader.NinjaScript.Strategies
 		{
 			if (State == State.SetDefaults)
 			{
-				Description									= @"Enter the description for your new custom Strategy here.";
-				Name										= "RSIStochRSITrendADXTimeCode";
-				Calculate									= Calculate.OnBarClose;
-				EntriesPerDirection							= 1;
-				EntryHandling								= EntryHandling.AllEntries;
-				IsExitOnSessionCloseStrategy				= true;
-				ExitOnSessionCloseSeconds					= 30;
-				IsFillLimitOnTouch							= false;
-				MaximumBarsLookBack							= MaximumBarsLookBack.TwoHundredFiftySix;
-				OrderFillResolution							= OrderFillResolution.Standard;
-				Slippage									= 0;
-				StartBehavior								= StartBehavior.WaitUntilFlat;
-				TimeInForce									= TimeInForce.Gtc;
-				TraceOrders									= false;
-				RealtimeErrorHandling						= RealtimeErrorHandling.StopCancelClose;
-				StopTargetHandling							= StopTargetHandling.PerEntryExecution;
-				BarsRequiredToTrade							= 20;
+				Description					= @"Enter the description for your new custom Strategy here.";
+				Name						= "RSIStochRSITrendADXTimeCode";
+				Calculate					= Calculate.OnBarClose;
+				EntriesPerDirection				= 1;
+				EntryHandling					= EntryHandling.AllEntries;
+				IsExitOnSessionCloseStrategy			= true;
+				ExitOnSessionCloseSeconds			= 30;
+				IsFillLimitOnTouch				= false;
+				MaximumBarsLookBack				= MaximumBarsLookBack.TwoHundredFiftySix;
+				OrderFillResolution				= OrderFillResolution.Standard;
+				Slippage					= 0;
+				StartBehavior					= StartBehavior.WaitUntilFlat;
+				TimeInForce					= TimeInForce.Gtc;
+				TraceOrders					= false;
+				RealtimeErrorHandling				= RealtimeErrorHandling.StopCancelClose;
+				StopTargetHandling				= StopTargetHandling.PerEntryExecution;
+				BarsRequiredToTrade				= 20;
 				// Disable this property for performance gains in Strategy Analyzer optimizations
 				IsInstantiatedOnEachOptimizationIteration	= true;
 				StopLoss					= 8;
 				TakeProfit					= 4;
-				RSIOverBought				= 65;
+				RSIOverBought					= 65;
 				RSIOverSold					= 35;
 				RSIMedium					= 50;
-				StochRSIOverBought			= 0.9;
-				StochRSIOverSold			= 0.1;
-				StochRSIMedium				= 0.5;
+				StochRSIOverBought				= 0.9;
+				StochRSIOverSold				= 0.1;
+				StochRSIMedium					= 0.5;
 				MAPeriod					= 200;
 			}
 			else if (State == State.Configure)
@@ -79,8 +79,8 @@ namespace NinjaTrader.NinjaScript.Strategies
 				EMA1					= EMA(Close, Convert.ToInt32(MAPeriod));
 				MACD1					= MACD(Close, 12, 26, 9);
 				SMA1					= SMA(Close, Convert.ToInt32(MAPeriod));
-				ADX1.Plots[0].Brush 	= Brushes.DarkCyan;
-				BarSpeed1.Plots[0].Brush= Brushes.Blue;
+				ADX1.Plots[0].Brush 			= Brushes.DarkCyan;
+				BarSpeed1.Plots[0].Brush		= Brushes.Blue;
 				AddChartIndicator(ADX1);
 				AddChartIndicator(BarSpeed1);
 				SetProfitTarget("", CalculationMode.Ticks, TakeProfit);
